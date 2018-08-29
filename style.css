@@ -1,0 +1,46 @@
+#navItem {
+    background-color: rgb(63, 141, 122);
+}
+
+.col-centered {
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.listContainer {
+    text-align: center;
+}
+
+.movieItem {
+    max-width: 25%;
+}
+
+#movieId{
+    display: none; /*Fuling*/
+}
+
+h3 {
+    text-align: center;
+}
+.uploadMedia{
+    border-radius: 15px;
+}
+
+.imgItem :hover{
+    transform: scale(1.5,1.5);
+}
+
+
+/* #favFilmHeader{
+    float: left;
+} */
+
+@media screen and (max-width:576px) {
+    .movieItem {
+        max-width: 100%;
+    }
+    #searchBtn{
+        width: 200px;
+    }
+}

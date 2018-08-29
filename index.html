@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Appli-cation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="icon.png">
+</head>
+
+<body>
+    <header class="row header justify-content-center">
+        <h1 class="w-100 text-center bg-light p-2">-Appli-cation-</h1>
+        <br>
+        <div id="weather" class="d-flex flex-col flex-wrap text-center justify-content-center">
+            <h2 class="w-100">Väder</h2>
+            <h5 id="temp" class="w-100">Temperatur: </h5>
+            <h5 id="state" class="w-100">Vädertyp: </h5>
+            <img id="icon" class="img-fluid" src="">
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+        <ul class="navbar-nav">
+            <li class="nav-item navItem searchFilm">
+                <a class="nav-link searchBtn" href="#">Sök film</a>
+            </li>
+            <li class="nav-item navItem record">
+                <a class="nav-link uploadBtn" href="#">Ladda upp media</a>
+            </li>
+            <li class="nav-item navItem record">
+                <a class="nav-link libBtn" href="#">Filmbibliotek</a>
+            </li>
+        </ul>
+        <br>
+    </nav>
+
+    <section class="container d-flex flex-wrap justify-content-center searchSec">
+        <h6 class="favFilmHeader text-secondary">Favoritfilm:</h6>
+        <div class=" col-sm-11 col-centered d-flex flex-wrap justify-content-center searchFilm">
+            <label for="search">Sök film:</label>
+            <input type="text" class="form-control" id="search">
+            <button type="button" class="btn btn-dark" id="searchBtn">Sök</button>
+            <br>
+        </div>
+        <div class="listContainer container d-sm-flex p-2 flex-wrap flex-row justify-content-center">
+        </div>
+    </section>
+
+    <section class="container d-none flex-wrap flex-column justify-content-center uploadSec">
+        <form action="https://ddwap.mah.se/af8654/server.php" enctype="multipart/form-data" method="post" id="myForm" class="uploadMedia d-flex flex-col flex-wrap text-center align-items-center justify-content-center m-3 bg-warning ">
+            <h6>Upload your pictures here!</h6>
+            <select name="type" id="uploadMedia" class="m-3 w-25" onchange="changeAccept(this.value)">
+                <option value="">Välj typ här</option>
+                <option value="photo">Foto</option>
+                <option value="video">Video</option>
+                <option value="audio">Ljud</option>
+            </select>
+            <input type="file" class="form-control w-75 btn" name="media" accept="" id="medias">
+            <br>
+            <input type="text" class="form-control w-50" name="title" id="titel" placeholder="Namn på fil">
+            <input type="submit" value="Spara media" class="btn m-3">
+        </form>
+        <h3>Your saved files:</h3>
+        <select name="mediaType" id="typeOfMedia" onchange="changeSec(this.value)">
+            <option value="">Välj typ här</option>
+            <option value="photo">Foto</option>
+            <option value="video">Video</option>
+            <option value="audio">Ljud</option>
+        </select>
+        <section class="row container">
+            <section class="d-none flex-wrap flex-col text-center justify-content-center imgSec m-4">
+            </section>
+
+            <section class="videoSec d-none flex-wrap flex-col text-center justify-content-center w-100 m-3">
+            </section>
+
+            <section class="audioSec d-none flex-wrap flex-col text-center justify-content-center w-100 m-3">
+            </section>
+
+        </section>
+    </section>
+
+    <section class="movieLibSec d-none flex-wrap flex-column justify-content-center text-center">
+        <div class="col-ld-12 col-md-12 col-sd-12 col-xs-12">
+            <div class="table-responsive">
+                <table class="table" id="movieTable">
+                    <tbody>
+                        <tr id="results-list" class="results-list">
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <script src="mediaHandler.js"></script>
+    <script src="sectionHandler.js"></script>
+    <script src="weather.js"></script>
+    <script src="movieLibrary.js"></script>
+</body>
+
+</html>
